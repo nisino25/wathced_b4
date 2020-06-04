@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'login', to: 'session#create'
   resources :users
   resources :articles
+  
 
 
 
