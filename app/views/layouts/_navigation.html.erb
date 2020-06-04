@@ -28,14 +28,16 @@
                 <div class="dropdown-divider"></div>
             </li>
         </ul>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <%= link_to 'SIGN IN', root_path, class: "btn  btn-success btn-block"%>
-            </li>
-            <p>"  "</p>
-            <li class="nav-item active">
-                <%= link_to 'SIGN UP', root_path, class: "btn  btn-primary btn-block"%>
-            </li>
-        </ul>
+        <% if !(logged_in?) %>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <%= link_to 'SIGN IN', root_path, class: "btn  btn-success btn-block"%>
+                </li>
+                <p>"  "</p>
+                <li class="nav-item active">
+                    <%= link_to 'SIGN UP', root_path, class: "btn  btn-primary btn-block"%>
+                </li>
+            </ul>
+        <% end %>
     </div>
 </nav>
