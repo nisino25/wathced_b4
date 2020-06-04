@@ -3,11 +3,11 @@
     <div class="container" id="home-container">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><%= article.title %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= article.rating %></h6>
+                <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
+                <h6 class="card-subtitle mb-2 text-muted font-italic"><%= article.rating %></h6>
                 <p class="card-text"><%= article.description %></p>
-                <%= link_to "Edit", root_path, class: "card-link" %>
-                <%= link_to "Delete", root_path, class: "card-link" %>
+                <%= link_to "Edit", edit_article_path(article), class: "card-link text-success" %>
+                <%= link_to "Delete", article_path(article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                 
             </div>
         </div>
