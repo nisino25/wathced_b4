@@ -17,25 +17,28 @@
             </li>
         </ul>
         </form>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Account </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Login", login_path, class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Logout</a>
-                <a class="dropdown-item" href="#">Signup</a>
-                <div class="dropdown-divider"></div>
-            </li>
-        </ul>
+        
         <% if !(logged_in?) %>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <%= link_to 'SIGN IN', root_path, class: "btn  btn-success btn-block"%>
+                    <%= link_to 'SIGN IN', login_path, class: "btn  btn-success btn-block"%>
                 </li>
-                <p>"  "</p>
+                <p>""</p>
                 <li class="nav-item active">
-                    <%= link_to 'SIGN UP', root_path, class: "btn  btn-primary btn-block"%>
+                    <%= link_to 'SIGN UP', new_user_path, class: "btn  btn-primary btn-block"%>
+                </li>
+            </ul>
+        <% end %>
+
+        <% if (logged_in?) %>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="#">Change the profile</a>
+                    <div class="dropdown-divider"></div>
                 </li>
             </ul>
         <% end %>
