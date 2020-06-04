@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'login', to: 'session#create'
   resources :users
   resources :articles
+  get 'articles/new', to: 'articles#new'
+  post 'articles/new', to: 'articles#create'
   
 
 
