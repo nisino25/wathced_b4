@@ -15,6 +15,14 @@
             <li class="nav-item active">
                 <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Category
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Create a new category", new_category_path, class: "dropdown-item" %>
+                <%= link_to "View categories", categories_path, class: "dropdown-item" %>
+            </li>
             <li class="nav-item active">
                 <%= link_to "Listing", articles_path, class: "nav-link" %>
             </li>
