@@ -1,22 +1,28 @@
-<div class="container">  
-    <div class="row">
-        <% @articles.each do |article| %>
-            <div class="container col" id="home-container">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
-                        <h6 class="card-subtitle mb-2 text-muted font-italic"><%= article.rating %></h6>
-                        <p class="card-text"><%= article.description %></p>
-                        <%= link_to "Edit", edit_article_path(article), class: "card-link text-success" %>
-                        <%= link_to "Delete", article_path(article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-                    </div>
-                    <div class="card-footer text-muted">
-                        <small>Created <%= time_ago_in_words(article.created_at) %> ago,
-                        edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+<div class="container" id="home-container">  
+    <div class="flickr_pagination">
+        <%= will_paginate @articles, :container => false %>
+    </div>
+        <div class="row">
+            <% @articles.each do |article| %>
+                <div class="container col" id="home-container">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
+                            <h6 class="card-subtitle mb-2 text-muted font-italic"><%= article.rating %></h6>
+                            <p class="card-text"><%= article.description %></p>
+                            <%= link_to "Edit", edit_article_path(article), class: "card-link text-success" %>
+                            <%= link_to "Delete", article_path(article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Created <%= time_ago_in_words(article.created_at) %> ago,
+                            edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
+    <div class="flickr_pagination">
+        <%= will_paginate @articles, :container => false %>
     </div>
 </div>
 
