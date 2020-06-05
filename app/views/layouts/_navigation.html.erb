@@ -15,22 +15,15 @@
             <li class="nav-item active">
                 <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
+            <li class="nav-item active">
+                <%= link_to "Listing", articles_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+                <%= link_to "Create", new_article_path, class: "nav-link" %>
+            </li>
         </ul>
         </form>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Articles </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%= link_to "Check the articles", articles_path, class: "dropdown-item" %>
-                    <%= link_to "Create a new article", new_article_path, class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-            </li>
-        </ul>
-
-        
-        
         <% if !(logged_in?) %>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -45,15 +38,18 @@
 
         <% if (logged_in?) %>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account [<%= current_user.username %>] </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%= link_to 'Logout', logout_path, class: "dropdown-item", method: :delete %>
-                    <a class="dropdown-item" href="#">Change the profile</a>
-                    <div class="dropdown-divider"></div>
+                <li class="nav-item active text-white">
+                    <a> Account [<%= current_user.username %>]  </a>
+                </li> 
+            </ul>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active text-white">
+                    <%= link_to "SIGN OUT", logout_path, method: :delete,class: "btn btn-danger" %>
                 </li>
             </ul>
         <% end %>
+
+
     </div>
 </nav>
