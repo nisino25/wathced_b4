@@ -5,14 +5,20 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign Up</h5>
-            <%= form_with(scope: :session, url: login_path, class: "form-signin", local: true) do |f| %>
-              <div class="form-label-group">
-                <label for="inputEmail">Username</label>
-                <input class="form-control" placeholder="Username">
+            <%= form_with(model: @user,  local: true) do |f| %>
+
+              <div class="form-group row">
+                <%= f.label :username %>
+                <div class="col-10">
+                  <%= f.text_field :username, class: "form-control shadow rounded", placeholder: "Enter a username" %>
+                </div>
               </div>
-              <div class="form-label-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+              <div class="form-group row">
+                <%= f.label :password %>
+                <div class="col-10"> 
+                  <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Choose a password" %>
+                </div>
               </div>
 
               <p></p>
