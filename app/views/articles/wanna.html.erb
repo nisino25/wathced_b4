@@ -1,7 +1,7 @@
-<h1 class="text-center mt-4">Articles</h1>
+<h1 class="text-center mt-4">Wanna watch list</h1>
     <p class="container text-center">
         <%= link_to 'Create a new article', new_article_path, class: "btn  btn-info "%>
-        <%= link_to 'Wanna watch list', wanna_path, class: "btn  btn-success "%>
+        <%= link_to 'Articles', articles_path, class: "btn  btn-success "%>
     </p>
 
 <div class="container" id="home-container">  
@@ -10,16 +10,16 @@
     </div>
         <div class="row">
             <% @articles.each do |article| %>
-                <% if article.watched == true %>
+                <% if article.watched == false %>
                     <div class="container col" id="home-container">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
-                                <% if !(article.rating == nil) %>
-                                    <% if article.rating >= 75 %>
-                                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-success  mr-1"><%= article.rating %></h6>&nbsp<a class= "text-muted">Rating</a>
+                                <% if !(article.expecting == nil) %>
+                                    <% if article.expecting >= 75 %>
+                                    <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-success  mr-1"><%= article.expecting %></h6> &nbsp<a class= "text-muted">Expeting</a>
                                     <% else %>
-                                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-danger  mr-1"><%= article.rating %></h6>&nbsp<a class= "text-muted">Rating</a>
+                                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-danger  mr-1"><%= article.expecting %></h6> &nbsp<a class= "text-muted">Expeting</a>
                                     <% end %>
                                 <% end %>
                                 <p class="card-text"><%= truncate(article.description, length: 50) %></p>

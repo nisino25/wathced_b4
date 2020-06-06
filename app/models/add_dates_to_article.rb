@@ -1,0 +1,2 @@
+class AddDatesToArticle < ApplicationRecord
+end

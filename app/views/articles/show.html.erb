@@ -1,18 +1,46 @@
 <div class="container" id="home-container" id="cards">
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title text-info"><%= @article.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted font-italic"><%= @article.rating %></h6>
-            <p class="card-text"><%= @article.description %></p>
-            <hr>
-            <p class="card-text"><%= @article.review %></p>
-            <% if @article.categories.any? %>
-                <div class="mt-2"><%= render @article.categories %></div> 
-            <% end %>
-            <%= link_to "Edit", edit_article_path(@article), class: "card-link text-success" %>
-            <%= link_to "Delete", article_path(@article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-            <%= link_to "Back to articles", articles_path, class: "card-link" %>
-            
-        </div>
+        <% if @article.watched == true %>
+            <div class="card-body">
+                <h5 class="card-title text-info"><%= @article.title %></h5>
+                <% if !(@article.rating == nil) %>
+                    <% if @article.rating >= 75 %>
+                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-success  mr-1"><%= @article.rating %></h6> &nbsp<a class= "text-muted">Rating</a>
+                    <% else %>
+                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-danger  mr-1"><%= @article.rating %></h6>&nbsp<a class= "text-muted">Rating</a>
+                    <% end %>
+                <% end %>
+                <p class="card-text"><%= @article.description %></p>
+                <hr>
+                <p class="card-text"><%= @article.review %></p>
+                <% if @article.categories.any? %>
+                    <div class="mt-2"><%= render @article.categories %></div> 
+                <% end %>
+                <%= link_to "Edit", edit_article_path(@article), class: "card-link text-success" %>
+                <%= link_to "Delete", article_path(@article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                <%= link_to "Back to articles", articles_path, class: "card-link" %>
+            </div>
+        <% else %>
+                <div class="card-body">
+                <h5 class="card-title text-info"><%= @article.title %></h5>
+                <% if !(@article.expecting == nil) %>
+                    <% if @article.expecting >= 75 %>
+                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-success  mr-1"><%= @article.expecting %></h6>&nbsp<a class= "text-muted">Expecting</a>
+                    <% else %>
+                        <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-danger  mr-1"><%= @article.expecting %></h6></h6>&nbsp<a class= "text-muted">Expecting</a>
+                    <% end %>
+                <% end %>
+                <p class="card-text"><%= @article.description %></p>
+                <hr>
+                <p class="card-text"><%= @article.review %></p>
+                <% if @article.categories.any? %>
+                    <div class="mt-2"><%= render @article.categories %></div> 
+                <% end %>
+                <%= link_to "Edit", edit_article_path(@article), class: "card-link text-success" %>
+                <%= link_to "Delete", article_path(@article), class: "card-link text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                <%= link_to "Back to list", wanna_path, class: "card-link" %>
+                </div>
+        <% end %>
+
     </div>
 </div>

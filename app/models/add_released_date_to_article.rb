@@ -1,0 +1,2 @@
+class AddReleasedDateToArticle < ApplicationRecord
+end

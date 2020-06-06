@@ -22,7 +22,13 @@
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-info" %></h5>
-                            <h6 class="card-subtitle mb-2 text-muted font-italic"><%= article.rating %></h6>
+                            <% if !(article.rating == nil) %>
+                                <% if article.rating >= 75 %>
+                                    <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-success  mr-1"><%= article.rating %></h6>&nbsp<a class= "text-muted">Rating</a>
+                            <% else %>
+                                    <h6 class="card-subtitle mb-2 font-italic badge badge-pill badge-danger  mr-1"><%= article.rating %></h6>&nbsp<a class= "text-muted">Rating</a>
+                            <% end %>
+                            <% end %>
                             <p class="card-text"><%=  article.description %></p>
                             <% if article.categories.any? %>
                                 <div class="mt-2"><%= render article.categories %></div> 

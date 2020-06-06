@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :articles
   delete 'logout', to: 'session#destroy'
   resources :categories
+  get 'wanna', to: 'articles#wanna'
 
 end

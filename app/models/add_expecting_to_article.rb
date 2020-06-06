@@ -1,0 +1,2 @@
+class AddExpectingToArticle < ApplicationRecord
+end
