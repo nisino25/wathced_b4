@@ -1,3 +1,8 @@
+<h1 class="text-center mt-4">Articles</h1>
+    <p class="container text-center">
+        <%= link_to 'Create a new article', new_article_path, class: "btn  btn-info "%>
+    </p>
+
 <div class="container" id="home-container">  
     <div class="flickr_pagination">
         <%= will_paginate @articles, :container => false %>

@@ -13,36 +13,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <%= link_to "Home", root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Category
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Create a new category", new_category_path, class: "dropdown-item" %>
-                <%= link_to "View categories", categories_path, class: "dropdown-item" %>
+                <%= link_to "Articles", articles_path, class: "nav-link" %>
             </li>
             <li class="nav-item active">
-                <%= link_to "Listing", articles_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-                <%= link_to "Create", new_article_path, class: "nav-link" %>
+                <%= link_to "Categories", categories_path, class: "nav-link" %>
             </li>
         </ul>
         </form>
-
-        <% if !(logged_in?) %>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <%= link_to 'SIGN IN', login_path, class: "btn  btn-success btn-block"%>
-                </li>
-                <p>""</p>
-                <li class="nav-item active">
-                    <%= link_to 'SIGN UP', new_user_path, class: "btn  btn-primary btn-block"%>
-                </li>
-            </ul>
-        <% end %>
 
         <% if (logged_in?) %>
             <ul class="navbar-nav mr-auto">
@@ -54,6 +31,18 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active text-white">
                     <%= link_to "SIGN OUT", logout_path, method: :delete,class: "btn btn-danger" %>
+                </li>
+            </ul>
+        <% end %>
+
+        <% if !(logged_in?) %>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <%= link_to 'SIGN IN', login_path, class: "btn  btn-success btn-block"%>
+                </li>
+                <p>""</p>
+                <li class="nav-item active">
+                    <%= link_to 'SIGN UP', new_user_path, class: "btn  btn-primary btn-block"%>
                 </li>
             </ul>
         <% end %>
