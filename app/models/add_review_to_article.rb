@@ -1,0 +1,2 @@
+class AddReviewToArticle < ApplicationRecord
+end
